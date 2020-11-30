@@ -20,7 +20,7 @@ manager called `BiocManager` we can streamline this process. Please make sure th
 system is ready for analysis.
 
 ```{r}
-install.packages(c("Biocmanager"))
+install.packages("BiocManager")
 BiocManager::install(c("DESeq2", "ggplot2", "pheatmap", "GenomicFeatures", "remotes", "patchwork"))
 
 remotes::install_github("js229/Vennerable")
@@ -184,6 +184,9 @@ We now have TPM values let's calculate average expression per condition. We will
 ```{r}
 library(ggplot2)
 library(patchwork)
+
+res$sig<-ifelse(res$padj<0.05, T, F)
+
 avg_tpm<-data.frame(genes=rownames(tpm_sorted), 
                     untreated=rowMeans(tpm_sorted[, grep("untreated", colnames(tpm_sorted))]),
                     treated=rowMeans(tpm_sorted[, grep("treated", colnames(tpm_sorted))]))
