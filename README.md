@@ -5,7 +5,7 @@ These are the necessary files for RNA-Seq lecture demonstration. In addition to 
 After installation you will need to donwload and install some required packages. Please launch Rstudio and run 
 
 ```{r}
-install.packages(c("Biocmanager"))
+install.packages("BiocManager")
 BiocManager::install(c("DESeq2", "ggplot2", "pheatmap", "GenomicFeatures", "remotes", "patchwork"))
 
 remotes::install_github("js229/Vennerable")
